@@ -84,7 +84,7 @@ namespace StackExchange.Redis
         /// This is memoized because it's accessed on hot paths inside the write lock.
         /// </remarks>
         public bool SupportsDatabases =>
-            supportsDatabases ??= serverType == ServerType.Standalone && Multiplexer.CommandMap.IsAvailable(RedisCommand.SELECT);
+            supportsDatabases ??= Multiplexer.CommandMap.IsAvailable(RedisCommand.SELECT);
 
         public int Databases
         {
